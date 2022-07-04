@@ -16,7 +16,7 @@ const Header = () => {
                 <div className="md:float-left block"> {/**md => medium devices  */}
                     <Link href="/">
                         <span className="cursor-pointer font-bold text-4xl text-white"> 
-                            Wandile Nyembe
+                            Welcome to my Blog
                         </span>
                     </Link>
                 </div>
