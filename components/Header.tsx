@@ -8,6 +8,8 @@ const Header = () => {
 
     const [categories, setCategories] = useState([]);
 
+    // useEffect is an effect that is implemented by the React after the DOM has     
+    // rendered the updates on the web page
     useEffect(() => {
         getCategories().then((newCategories) => setCategories(newCategories))
     }, []);
@@ -49,7 +51,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="hidden md:float-left md:contents">
-                    {categories.map((category) => (
+                    {categories.map((category: any) => (
                         <Link key={category.slug} href={`/category/${category.slug}`}>
                             <span className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer">
                                 {category.name}

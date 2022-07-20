@@ -3,15 +3,14 @@ import moment from 'moment'
 import Link from 'next/link'
 import { getRecentPosts, getSimilarPosts } from '../services'
 import Image from 'next/image'
-import { graphCMSImageLoader } from '../util'
 
-const PostWidget = ({ categories, slug }) => {
+const PostWidget = ({ categories, slug }: any) => {
     // relatedPosts is literally a list of related posts
     const [relatedPosts, setRelatedPosts] = useState([]);
 
     useEffect(() => {
         if (slug) { 
-            getSimilarPosts(categories, slug).then((result) => {
+            getSimilarPosts({categories, slug}).then((result) => {
                 setRelatedPosts(result)
             });
         }
@@ -25,7 +24,7 @@ const PostWidget = ({ categories, slug }) => {
     return (
         <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
           <h3 className="text-xl mb-8 font-semibold border-b pb-4">{slug ? 'Related Posts' : 'Recent Posts'}</h3>
-          {relatedPosts.map((post, index) => (
+          {relatedPosts.map((post: any, index: any) => (
             <div key={index} className="flex items-center w-full mb-4">
               <div className="w-16 flex-none">
                 <Image

@@ -2,7 +2,7 @@ import React from 'react'
 import { Header } from './'
 
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: any) => {
   return (
     <>
         <Header />

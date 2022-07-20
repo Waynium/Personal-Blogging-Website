@@ -3,7 +3,7 @@ import moment from 'moment'
 import parse from 'html-react-parser'
 import { getComments } from '../services'
 
-const Comments = ({ slug }) => {
+const Comments = ({ slug }: any) => {
 
   const [comments, setComments] = useState([]);
 
@@ -21,7 +21,7 @@ const Comments = ({ slug }) => {
             {' '}
             Comments
           </h3>
-          {comments.map((comment) => (
+          {comments.map((comment: any) => (
             <div key={comment.createdAt} className="border-b border-gray-100 mb-4 pb-4">
               <p className="mb-4">
                 <span className="font-semibold">{comment.name}</span>

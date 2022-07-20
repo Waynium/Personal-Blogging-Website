@@ -1,6 +1,6 @@
 import { request, gql} from 'graphql-request';
 
-const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
+const graphqlAPI: any = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
 export const getPosts = async () => {
     const query = gql `
@@ -37,7 +37,7 @@ export const getPosts = async () => {
     return result.postsConnection.edges;
 }
 
-export const getPostDetails = async (slug) => {
+export const getPostDetails = async (slug: any) => {
     const query = gql `
         query GetPostDetails($slug: String!) {
             post(where: { slug: $slug}) {
@@ -93,7 +93,7 @@ export const getRecentPosts = async () => {
     return result.posts;
 }
 
-export const getSimilarPosts = async(categories, slug) => {
+export const getSimilarPosts = async({categories, slug}: any) => {
     const query = gql `
         query GetPostDetails($slug: String!, $categories: [String!]) {
             posts(
@@ -129,7 +129,7 @@ export const getCategories = async () => {
     return result.categories;
 }
 
-export const submitComment = async (obj) => {
+export const submitComment = async (obj: any) => {
     const result = await fetch('/api/comments', {
         method: 'POST',
         headers: {
@@ -141,7 +141,7 @@ export const submitComment = async (obj) => {
     return result.json();
 }
 
-export const getComments = async (slug) => {
+export const getComments = async (slug: any) => {
     const query = gql `
         query GetComments($slug: String!) {
             comments(where: { post: { slug: $slug } } ) {

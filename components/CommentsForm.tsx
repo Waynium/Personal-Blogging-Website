@@ -2,15 +2,16 @@ import React, { useRef, useState, useEffect } from 'react'
 
 import { submitComment } from '../services'
 
-const CommentsForm = ({ slug }) => {
-
+const CommentsForm = ({ slug }: any) => {
+  
+  // destructuring !!!
   const [error, setError] = useState(false);
   const [localStorage, setlocalStorage] = useState(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const commentEl = useRef();
-  const nameEl = useRef();
-  const emailEl = useRef();
-  const storeDataEl = useRef();
+  const commentEl: any = useRef();
+  const nameEl: any = useRef();
+  const emailEl: any = useRef();
+  const storeDataEl: any = useRef();
 
   useEffect(() => {
     nameEl.current.value = window.localStorage.getItem('name');
@@ -37,8 +38,8 @@ const CommentsForm = ({ slug }) => {
       window.localStorage.setItem('email', email);
     }
     else {
-      window.localStorage.removeItem('name', name);
-      window.localStorage.removeItem('email', email);
+      window.localStorage.removeItem('name'); // window.localStorage.removeItem('name', name);
+      window.localStorage.removeItem('email'); // window.localStorage.removeItem('email', email);
     }
 
     submitComment(commentObj)
